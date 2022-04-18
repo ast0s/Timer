@@ -14,11 +14,12 @@ namespace Timer
 
             Timer timer = new Timer(int.Parse(Console.ReadLine()));
             TimerMessage tm = timer.ShowMessage;
+            TimerTick tt = timer.Tick;
 
             int counter = 0;
             while (true)
             {
-                timer.Tick();
+                tt.Invoke();
                 counter++;
 
                 if (timer.seconds == counter)
@@ -26,5 +27,6 @@ namespace Timer
             }
         }
         public delegate void TimerMessage();
+        public delegate void TimerTick();
     }
 }
